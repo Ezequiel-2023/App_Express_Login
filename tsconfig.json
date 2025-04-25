@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",                // Define el directorio donde se generarán los archivos compilados en JavaScript
+    "rootDir": "./src",                // Establece el directorio de entrada para los archivos TypeScript
+    "lib": ["esnext"],                 // Especifica las bibliotecas JavaScript modernas que se utilizarán en la compilación
+    "target": "ESNext",                // Indica que el JavaScript generado debe utilizar las características más recientes de ECMAScript
+    "module": "NodeNext",              // Usa el sistema de módulos de Node.js basado en ES Modules (import/export)
+    "moduleResolution": "NodeNext",   // Resuelve los módulos de acuerdo con el estándar moderno de Node.js (NodeNext)
+    "esModuleInterop": true,           // Habilita la interoperabilidad entre ES Modules y CommonJS, simplificando las importaciones
+    "strict": false,                   // Desactiva las reglas estrictas de TypeScript; útil para principiantes o proyectos simples
+    "sourceMap": true,                 // Genera un archivo de mapa de fuentes (source map) para depurar el código TypeScript en el navegador
+    "declaration": true                // Crea archivos .d.ts para los módulos, útil si el proyecto se comparte como librería o paquete
+  },
+  "include": ["src/**/*"],             // Incluye todos los archivos TypeScript dentro del directorio src y sus subdirectorios
+  "exclude": ["node_modules"]          // Excluye los archivos dentro de node_modules de la compilación
+}

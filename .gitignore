@@ -1,0 +1,24 @@
+# Dependencias de Node.js
+node_modules/
+
+# Archivos de registro
+logs/
+*.log
+
+# Archivos de salida
+dist/
+build/
+
+# Configuración de TypeScript
+*.tsbuildinfo
+
+# Variables de entorno
+.env
+
+# Configuración de herramientas y editores
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
