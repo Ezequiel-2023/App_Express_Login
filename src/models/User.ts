@@ -1,11 +1,14 @@
 // File: src/models/User.ts
 import mongoose, { Schema } from "mongoose";
 
+
 export interface IUser{
     handle: string;
     name: string;
     email: string;
     password: string;
+    description?: string;
+    profilePicture?: string;
 }
 
 const userSchema = new Schema({
@@ -33,7 +36,18 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-    }
+    },
+    description: {
+        type: String,
+        trim: true,
+        default: "",
+    },
+    profilePicture: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        default: null,
+    },
 });
 
 const User = mongoose.model("User", userSchema);

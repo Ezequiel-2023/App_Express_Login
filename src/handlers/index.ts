@@ -19,16 +19,14 @@ export const createAccount = async (req: Request, res: Response): Promise<void> 
     const { email, password } = req.body;
     const userExists = await User.findOne({ email });
     if (userExists) {
-        const userError = new Error('Usuario con ese mail ya está registrado');
-        res.status(409).json({ error: userError.message });
+        res.status(409).json({ error: 'Usuario con ese mail ya está registrado'});
         return; // Detiene ejecución en caso de error.
     }
 
     const handle = slug(req.body.handle, '');
     const handleExists = await User.findOne({ handle });
     if (handleExists) {
-        const handleError = new Error('Nombre de usuario no disponible');
-        res.status(409).json({ error: handleError.message });
+        res.status(409).json({ error: 'Nombre de usuario no disponible' });
        
         return;
     }
@@ -51,16 +49,14 @@ export const login = async (req: Request, res:Response) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
-        const userError = new Error('Usuario no existe');
-        res.status(404).json({ error: userError.message }); 
+        res.status(404).json({ error: 'Usuario no existe' }); 
         return; // Detiene ejecución en caso de error.
     }
     // comprobar password
     const isPassword = await  checkPassword(password, user.password)
     if (!isPassword) {
-        const userError = new Error('password incorrecto');
-        res.status(401).json({ error: userError.message });
-        console.log('password incorrecto' + userError.message); // Log del error para depuración.
+        res.status(401).json({ error: 'password incorrecto'});
+        console.log('password incorrecto' ); // Log del error para depuración.
         return; // Detiene ejecución en caso de error.
     }
     // generar token JWT
